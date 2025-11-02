@@ -1,0 +1,12 @@
+on: [create, delete, deployment, push, pull_request]
+jobs:
+    discord_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Discord notification
+              env:
+                DISCORD_WEBHOOK: ${{secrets.DISCORD_WEBHOOK}}
+                DISCORD_USERNAME: GitHub-Notyfikator
+              uses: Ilshidur/action-discord@master
+              with:
+                args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed'
