@@ -9,4 +9,4 @@ jobs:
                 DISCORD_USERNAME: GitHub-Notyfikator
               uses: Ilshidur/action-discord@master
               with:
-                args: 'Changes to the {{ EVENT_PAYLOAD.repository.full_name }} has been deployed'
+                args: 'Changes to the {{ EVENT_PAYLOAD.repository.full_name }} by {{ EVENT_PAYLOAD.sender.login}} has been deployed'
